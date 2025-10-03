@@ -1,0 +1,1055 @@
+/* ESTILO GERAL */
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Poppins', sans-serif;
+text-decoration: none;
+}
+
+html{
+    height: 100%;
+}
+
+
+/* Adicione este bloco no seu arquivo CSS */
+body.scroll-bloqueado {
+    overflow: hidden; /* Remove as barras de rolagem */
+    position: fixed;  /* Importante para fixar o conteúdo e evitar pulos */
+    width: 100%;      /* Garante que o body continue ocupando a largura total */
+}
+
+
+
+
+body{
+    background-color: black;
+    height: 100vh;
+}
+.interface{
+max-width: 1280px;
+margin: 0 auto;
+transition: max-widtch 0.4s ease-in-out;
+
+}
+
+
+body.modal-aberto .interface {
+    max-width: 900px;
+}
+
+.interface.container-reduzido{
+    max-width: 900px;
+    margin: 0;
+}
+
+.flex{
+    display: flex;
+}
+
+/* BOTÃO DE CONTATO */
+ .btn-contato button{
+    padding: 10px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #C8a2c8;
+    border: 0px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+h2.titulo{
+    color: #fff;
+    font-size: 38px;
+    text-align: center;
+
+}
+
+h2.titulo span{
+    color:#C8a2c8
+}
+
+/* ESTILO DO CABEÇALHO */
+header{
+    padding: 40px 4%;
+}
+
+header > .interface{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header a{
+    color: #505050;
+    display: inline-block;
+}
+
+header a:hover{
+color: #fff;
+transform: scale(1.10);
+transition: .5s;
+}
+
+header nav ul{
+    list-style-type: none;
+}
+
+header nav.menu-desktop ul li{
+    display: inline-block;
+    padding: 0 40px;
+}
+
+
+/* MENU MOBILE */
+.btn-abrir-menu i{
+    color: #C8a2c8;
+    font-size: 40px;
+    cursor: pointer;
+}
+/* O botão hambúrguer está escondido por padrão no desktop */
+.btn-abrir-menu {
+    display: none; 
+}
+
+
+.menu-mobile{
+    background-color: #000;
+    
+    position: fixed;
+    top: 0;
+    /* Mantido o right: 0 para que o menu abra da direita para a esquerda */
+    right: 0;
+    z-index: 99999;
+    width: 0%; 
+    overflow: hidden; /* Esconde o conteúdo quando o menu está fechado */
+    transition: width .6s ease-in-out; /* Adicionado para a transição suave */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    height: 100dvh;
+
+}
+
+/* Classe que o JavaScript deve adicionar para abrir o menu */
+.menu-mobile.abrir-menu {
+    width: 80%; /* Ocupa 80% da tela */
+    max-width: 80%;
+}
+
+
+.menu-mobile nav ul{
+    text-align: center;
+    width: 0%;
+    width: 0%;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out 0.6s,  visibility 0s 0.3s;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+
+
+}
+
+.menu-mobile.abrir-menu nav ul {
+    opacity: 1;
+    width: 100%;
+    visibility: visible;
+    transform: opacity 0.3s ease-in-out 0.6s;
+}
+
+.menu-mobile nav ul li a{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 20px 10%;
+    display: block;
+    
+}
+
+.menu-mobile .btn-fechar i{
+    color: #C8a2c8;
+    font-size: 40px;
+    
+}
+
+.menu-mobile .btn-fechar{
+    padding-top: calc(40px + env(safe-area-inset-top, 0)) !important;
+    padding-bottom: 0 !important;
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+    margin: 0 !important;
+
+}
+
+.menu-mobile nav ul li a:hover{
+    background-color: #C8a2c8;
+    color: #000;
+}
+
+/* ESTILO DO OVERLAY DO MENU MOBILE */
+.overlay-menu {
+    background-color: rgba(0, 0, 0, 0.7); /* Cor preta com 70% de transparência */
+    position: fixed; /* Fixa na tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9998; /* Um z-index ligeiramente menor que o menu, para ficar atrás */
+    display: none; /* Inicia escondido */
+    transition: opacity 0.3s ease-in-out; /* Transição para suavizar o aparecimento */
+    opacity: 0; /* Inicia invisível para a transição */
+}
+
+/* Quando a classe "ativo" for adicionada pelo JS, ele fica visível */
+.overlay-menu.ativo {
+    display: block; /* Mostra o overlay */
+    opacity: 1; /* Torna o overlay totalmente visível */
+}
+
+
+/* BOTÃO DE ENTRE EM CONTATO */
+ .btn-contato button:hover{
+    box-shadow: 0px 0px 8px #ff00ff;
+    transform: scale(1.10);
+
+}
+
+/* LOGOTIPO */
+.logo{
+    width: 180px;
+    height: auto;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow .5s, transform .5s;
+}
+
+.logo:hover{
+   box-shadow: 0px 0px 20px #ff00ff;
+    transform: none;
+}
+
+.img-topo-site img {
+    width: 350px;  /* Ou qualquer outro valor, como 500px, 600px, etc. */
+    height: auto;  /* Isso mantém a proporção original para não distorcer a imagem */
+    border-radius: 50%; /* Se você quiser o arredondamento na imagem */
+}
+
+/* ESTILO TOPO DO SITE */
+section.topo-do-site{
+    padding: 40px 4%;
+}
+
+section.topo-do-site .flex{
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+}
+
+.topo-do-site .txt-topo-site h1{
+    color: #fff;
+    font-size: 45px;
+    line-height: 40px;
+
+}
+
+.topo-do-site .txt-topo-site p{
+    color: #fff;
+    margin: 40px 0px;
+}
+
+.topo-do-site .img-topo-site img{
+position: relative;
+animation: flutuar 1.5s ease-in-out infinite alternate;
+position: relative;
+animation: flutuar 1.5s ease-in-out infinite alternate;
+}
+
+
+@keyframes flutuar{
+    0%{
+        top: 0;
+    }
+    100%{
+        top: 30px;
+    }
+} 
+
+/* IMAGENS DA ESPECIALIDADES */
+/* ESTILO DAS ESPECIALIDADES */
+
+section.especialidades{
+    padding: 80px 4%; /* Ajusta o padding da seção */
+}
+
+section.especialidades .flex{
+    gap: 30px; /* Espaçamento entre as caixas */
+    justify-content: center;
+}
+
+.especialidades-box{
+    color: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    margin-top: 45px;
+    transition: .5s;
+    text-align: center; /* Centraliza o conteúdo (imagem, título e texto) */
+    background-color: #000000; /* Fundo escuro para a caixa, combine com seu design */
+    
+}
+
+.especialidades-box:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ff00ff; /* Sombra com a cor de destaque */
+}
+
+.especialidades-box h3{
+    font-size: 26px;
+    margin: 15px 0 10px 0;
+    text-align: left;
+}
+
+/* Alinha os parágrafos de preços à esquerda e reduz o espaçamento */
+.especialidades-box p{
+    margin: 2px 0; /* Espaçamento reduzido */
+    line-height: 1.5;
+    text-align: left; /* Alinhamento que você deseja: esquerda */
+}
+
+.icon-especialidade{
+    width: 250px; /* Define um tamanho para o ícone/imagem */
+    height: 250px;
+    border-radius: 20%; /* **DEIXA A IMAGEM ARREDONDADA (CÍRCULO)** */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    border: 4px solid #000000; /* Adiciona uma borda colorida à imagem */
+    box-shadow: #ff00ff;
+}
+
+
+/* ESTILO STATUS DOS PEDIDOS */
+section.status-pedidos {
+    padding: 20px 4% 20px 4%;
+}
+
+.status-container {
+    justify-content: center;
+    gap: 60px; /* Espaçamento entre as duas caixas */
+    margin-top: 40px;
+}
+
+.status-box {
+    color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    width: 45%; /* Define a largura para que caibam lado a lado com espaçamento */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+}
+
+.status-box:hover {
+    transform: translateY(-5px);
+}
+
+.status-box h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #fff; /* Linha de separação */
+}
+
+.status-box p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    text-align: left; /* Centraliza o texto dentro da caixa de status */
+}
+
+/* COR ESPECÍFICA PARA DESTAQUE */
+
+/* CAIXA (Aceitos) */
+.aceito {
+    background-color: #632b59; /* Verde escuro */
+    border: 2px solid #632b59; /* Borda verde clara */
+    transition: .5s;
+}
+.aceito:hover {
+    box-shadow: 0px 0px 8px #ff00ff;
+    transform: scale(1.05);
+}
+.aceito h3 {
+    color: #fff;
+    border-color: #fff;
+}
+
+/* CAIXA (Não Aceitos) */
+.nao-aceito {
+    background-color: #632b59; /* Vermelho escuro */
+    border: 2px solid #632b59; /* Borda vermelha clara */
+    transition: .5s;
+}
+.nao-aceito:hover {
+    box-shadow: 0px 0px 8px #ff00ff;
+    transform: scale(1.05);
+}
+.nao-aceito h3 {
+    color: #fff;
+    border-color: #fff;
+}
+
+/* SOBRE MIM - AJUSTES PARA IMAGEM MAIOR E MAIS À ESQUERDA SEM AFETAR O TEXTO */
+
+section.sobre-mim .flex {
+    justify-content: ce; /* Mantém os itens para o início (esquerda) */
+    align-items: center; /* Alinha a imagem e o texto verticalmente no centro */
+    gap: 60px; /* Reduzi um pouco o gap, pois a imagem será maior. Ajuste se precisar. */
+    padding: 130px;
+}
+
+.img-sobre {
+    /* Container da imagem */
+    width: 450px;   /* AUMENTADO: Nova largura da imagem */
+    height: 450px;  /* AUMENTADO: Nova altura da imagem para manter o círculo */
+    overflow: hidden;
+
+    flex-shrink: 0; /* Impede que a imagem encolha */
+    /* NOVA PROPRIEDADE: margin-right define o espaço à direita da imagem.
+     * Isso "empurra" o texto e mantém a imagem mais à esquerda. */
+    margin-right: 0px; /* Aumente este valor para mover a imagem mais para a esquerda */
+    margin-left: -100px; /* Movendo a imagem ainda mais para a esquerda, para fora da borda "padrão" */
+}
+
+.img-sobre img {
+    /* A imagem em si */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    animation: flutuar 1.5s ease-in-out infinite alternate
+}
+
+.txt-sobre h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color:#fff
+}
+
+
+.txt-sobre p {
+    color: #fff;
+    flex-grow: 1; /* Permite que o texto ocupe o espaço restante */
+    max-width: 1000px; /* Limita a largura máxima do bloco de texto */
+    /* Mantive o padding-right caso você tenha uma tela muito larga e queira um respiro */
+    padding-right: 20px; 
+    margin: 20px 0;
+    text-align: justify;
+    
+}
+
+.txt-sobre h2 span {
+    color: #C8a2c8;
+}
+
+/* O restante do seu CSS pode permanecer o mesmo. */
+
+.sobre-mim .img-sobre img{
+position: relative;
+animation: flutuar 1.5s ease-in-out infinite alternate;
+}
+
+.sobre-mim .txt-sobre .btn-social{
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: left; /* Alinha os botões à esquerda */
+    color: #fff;
+}
+
+
+.sobre-mim .txt-sobre .btn-social button{
+    width: 40px;
+    height: 40px;
+    border-radius: 25%;
+    border: none;
+    background-color: #C8a2c8;
+    font-size: 25px;
+    cursor: pointer;
+    margin: 0 13px;
+    align-items: center;
+    color: #000;
+}
+
+.btn-social button:hover{
+    box-shadow: 0px 0px 10px #ff00ff;
+    transform: scale(1.05);
+    transition: .5s;
+}
+
+/* ESTILO DO PORTFÓLIO */
+section.portfolio{
+    padding: 80px 4%;
+    box-shadow: 0 0 40px 10px #ffffff31;
+}
+
+/* AJUSTE PARA HABILITAR A ROLAGEM HORIZONTAL E ESPAÇAMENTO */
+section.portfolio .flex {
+    /* Garante que todos os itens fiquem na mesma linha */
+    flex-wrap: nowrap; 
+    
+    /* Adiciona espaço entre as caixas de imagens */
+    gap: 40px; 
+
+    /* Habilita a barra de rolagem horizontal se o conteúdo for maior que a tela */
+    overflow-x: auto; 
+    
+    /* Remove a barra de rolagem vertical */
+    overflow-y: hidden; 
+
+    /* Alinha os itens ao centro (mantido do código anterior, mas flex-start é melhor para rolagens) */
+    /* Sugestão: Tente 'justify-content: flex-start;' se quiser que o scroll comece totalmente à esquerda. */
+    justify-content: flex-start; 
+
+    margin-top: 60px;
+    padding-bottom: 20px; /* Adiciona espaço para a barra de rolagem não ficar colada */
+
+    /* Efeito visual melhorado para a rolagem (NÃO OBRIGATÓRIO, mas recomendado) */
+    scroll-snap-type: x mandatory; 
+}
+
+.img-port{
+    width: 800px;
+    height: 600px;
+    background-size: cover;
+    background-position: center center;
+    background-size: contain;
+    background-repeat: repeat;
+    transition: .8s;
+    cursor: pointer;
+    border-radius: 45px;
+    position: relative;
+    
+}
+
+.img-port:hover{
+    background-position: 100% 100%;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.801);
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #C8a2c8;
+    opacity: 0;
+    transition: .5s;
+}
+
+.overlay:hover{
+    opacity: 1;
+    transition: .5s;
+}
+
+/* ESTILO DO MODAL (POP-UP) */
+.modal-projeto {
+    display: none; /* Começa invisível */
+    position: fixed; 
+    z-index: 9999; /* Garante que fique acima de tudo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.8); /* Fundo preto semi-transparente */
+    transition: background-color 30.5s ease-in-out, opacity 30.5s ease-in-out;
+}
+
+.modal-projeto.ativo {
+    display: block; /* Fica visível quando ativado pelo JS */
+}
+
+.modal-conteudo {
+    background-color: #111; /* Fundo escuro para o conteúdo */
+    margin: 10% auto; /* Centraliza verticalmente e horizontalmente */
+    padding: 30px;
+    width: 80%; 
+    max-width: 900px;
+    border-radius: 15px;
+    color: #fff;
+    box-shadow: 0px 0px 10px #ff00ff;
+    transform: scale(1.05);
+    transition: .5s;
+    
+}
+
+.modal-flex {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.modal-imagem {
+    width: 300px; /* Largura da imagem de destaque no modal */
+    height: 400px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.modal-texto h2 {
+    color: #C8a2c8;
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+.modal-texto p {
+    margin-bottom: 5px;
+    line-height: 1.5;
+    text-align: justify;
+    hyphens: auto;
+    
+}
+
+/* Verifique se você tem esta regra (ou algo similar) no seu mobile CSS: */
+.fechar-modal {
+    position: fixed; /* Tira ele do fluxo de conteúdo */
+    top: 10px;       /* Perto do topo */
+    right: 10px;     /* Perto da direita */
+    z-index: 10000;
+    color: #fff; 
+    cursor: pointer;
+}
+
+.fechar-modal:hover,
+.fechar-modal:focus {
+    color: #C8a2c8;
+    text-decoration: solid;
+}  
+
+/* ESTILO PARA MODAL DE TEXTO COMPLETO (ex: Termos de Serviço) */
+/* Quando o conteúdo do modal NÃO tiver a estrutura .modal-flex, o texto usa a largura total */
+/* AJUSTE DENTRO DA MEDIA QUERY (para celular) */
+/* ESTILO PARA MODAL DE TEXTO COMPLETO (ex: Termos de Serviço) */
+.modal-termos .modal-conteudo {
+    /* MUDANÇA CRÍTICA: Definindo um max-width razoável para leitura (800px ou 1000px). */
+    max-width: 800px; 
+    padding: 30px;
+}
+
+.modal-termos h2 {
+    color: #C8a2c8;
+    /* MUDANÇA CRÍTICA: Alinhar o texto à esquerda para leitura, e não justificar. */
+    text-align: left; 
+    
+    /* REDUÇÃO: Apenas 30px de margem, o suficiente para respirar. */
+    margin-bottom: 30px; 
+    
+    font-size: 32px;
+}
+
+/* AJUSTE DENTRO DA MEDIA QUERY (para celular) */
+.modal-termos h2 {
+    color: #C8a2c8;
+    text-align: left; /* Alinha o título à esquerda, onde o texto começa */
+    
+    /* REDUZINDO a margem inferior de 100px (desktop) para um valor razoável */
+    margin-bottom: 100px; 
+    
+    font-size: 28px; /* Reduzindo um pouco o tamanho do título */
+}
+
+.modal-termos h3 {
+    color: #fff;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    border-bottom: 1px dashed #C8a2c8;
+    padding-bottom: 5px;
+}
+
+.modal-termos p {
+    color: #fff;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+
+/* ================================================= */
+/* ESTILO DO RODAPÉ */
+/* ================================================= */
+
+footer {
+    padding: 80px 4%; /* Padding superior e inferior para respiro */
+    border-top: 1px solid #4b494b62; /* Linha de separação discreta */
+    background-color: #0d0d0d; /* Fundo levemente diferente do corpo */
+    color: #fff;
+    text-align: center;
+}
+
+.rodape-flex {
+    justify-content: center;
+    align-items: center; /* Centraliza os itens verticalmente */
+    flex-wrap: wrap;
+    gap: 80px; /* Espaçamento entre o logo e o contato */
+}
+
+.logo-rodape {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o logo e o copyright dentro do bloco */
+    gap: 15px;
+    max-width: 300px;
+}
+
+.logo-rodape .logo {
+    width: 180px; 
+    height: auto;
+}
+
+.copyright {
+    color: #505050;
+    font-size: 14px;
+    text-align: center;
+}
+
+.contato-rodape {
+    text-align: center; /* Centraliza o texto de contato (H3, P) */
+}
+
+.contato-rodape h3 {
+    color: #C8a2c8;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.contato-rodape p {
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.contato-rodape a {
+    color: #fffffff8;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.contato-rodape a:hover {
+    color: #C8a2c8;
+    transform: scale(1.05);
+    transition: .5s;
+}
+
+/* ================================================= */
+/* ESTILO DOS ÍCONES SOCIAIS NO RODAPÉ (ÚLTIMA VERSÃO CORRIGIDA) */
+/* ================================================= */
+
+/* Container dos ícones no Rodapé */
+.rodape-btn-social {
+    display: flex;
+    justify-content: center; /* Centraliza os ícones na linha */
+    align-items: center;
+    gap: 25px; /* Espaçamento entre os botões */
+    margin-top: 20px;
+}
+
+/* Estilo do Botão/Link no Rodapé */
+.rodape-btn-social a {
+    text-decoration: none; /* Remove o sublinhado */
+    
+}
+
+
+
+/* Estilo do Ícone (o círculo lilás) no Rodapé */
+.rodape-icon {
+    width: 40px; /* Tamanho do círculo */
+    height: 40px;
+    border-radius: 25%;
+    border: none;
+    background-color: #C8a2c8; /* Fundo lilás */
+    font-size: 25px; /* Tamanho do ícone */
+    cursor: pointer;
+    color: #000;
+    
+    /* Centraliza o ícone FONT AWESOME dentro do círculo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ================================================= */
+/* MEDIA QUERY: ESTILO PARA TELAS PEQUENAS (MOBILE) */
+/* ================================================= */
+@media screen and (max-width: 1400px) {
+    
+    /* 1. CONFIGURAÇÃO GERAL DA INTERFACE */
+    .interface {
+        padding: 0 4%; /* Reduz o padding lateral geral */
+    }
+
+    /* 2. HEADER: Garante que o Logo e o Botão Hambúrguer se separem */
+    header {
+        padding: 20px 4%; /* Reduz o padding do header */
+    }
+
+   /*logo tipo*/
+   .logo{
+     width: 80px; 
+    height: 80px;
+   }
+
+    /* Esconde os itens de desktop e mostra o botão */
+    .menu-desktop,
+    .btn-contato {
+        display: none;
+    }
+
+    .btn-abrir-menu {
+        display: block; /* Garante que o botão seja visível no mobile */
+    }
+    
+    /* CORREÇÃO CRÍTICA PARA MENU MOBILE BAGUNÇADO (texto vertical) */
+    .menu-mobile.abrir-menu {
+        /* Garante que o menu não se expanda para além da largura definida */
+        max-width: 80%;
+        width: 80%; 
+    }
+
+    .menu-mobile .btn-fechar{
+           padding-top: calc(40px + env(safe-area-inset-top, 0)) !important;
+           padding-top: calc(40px + env(safe-area-inset-top, 0)) !important;
+           padding-left: 5% !important;
+           padding-right: 5% !important;
+           margin: 0 !important;
+    }
+
+    .btn-abrir-menu i, .btn-fechar i {
+        font-size: 35px; /* Reduz um pouco o ícone para caber melhor */
+    }
+
+    
+
+
+    /* 3. TOPO DO SITE: Empilha e Centraliza */
+    section.topo-do-site .flex {
+        flex-direction: column; /* Empilha os elementos (texto e imagem) */
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .topo-do-site .txt-topo-site h1 {
+        font-size: 30px;
+        line-height: 1.2;
+        text-align: left;
+        color:#C8a2c8
+    }
+    
+    .topo-do-site .txt-topo-site p {
+        text-align: justify;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        hyphens: auto;
+        word-spacing: -1px;
+    }
+
+    .topo-do-site .img-topo-site img {
+        width: 250px;
+        height: 250px;
+    }
+    
+    /* 4. ESPECIALIDADES E STATUS: Empilha os Itens e Corrige Textos */
+    section.especialidades,
+    section.status-pedidos {
+        padding: 40px 4%; /* Reduz o padding vertical */
+    }
+    
+    /* Faz as colunas virarem linhas (empilha) */
+    section.especialidades .flex,
+    .status-container {
+        flex-direction: column;
+        gap: 30px; /* Espaçamento entre os blocos empilhados */
+    }
+    
+    /* Caixas de Especialidades (CORRIGINDO TEXTO AMONTOADO) */
+    .especialidades-box {
+        width: 100%; /* Ocupa a largura total */
+        padding: 20px;
+    }
+    
+    .icon-especialidade {
+        width: 150px; 
+        height: 150px;
+        margin: 0 auto 15px auto; 
+        display: block;
+    }
+    
+   .especialidades-box h3{
+    font-size: 26px;
+    margin: 15px 0 10px 0;
+    /* Alinha o título de volta à esquerda (como na sua imagem) e garante o espaçamento */
+    text-align: center; 
+}
+    /* CORREÇÃO FORÇADA: Zera a margem e FORÇA a altura de linha e o espaçamento vertical */
+/* Correção final para o amontoamento dos preços no desktop */
+.especialidades-box p {
+    /* Garante que o texto tenha espaço normal entre as linhas */
+    line-height:normal
+    
+    /* Garante um espaçamento vertical adequado entre as linhas de preço */
+ margin: 5px 0; 
+    
+    /* Remove o padding que causava deslocamento */
+ padding: 0; 
+    
+    /* Alinha o texto de volta à esquerda (como na sua imagem) */
+ text-align: center;; 
+}
+
+    /* Corrige Status Box */
+    .status-box {
+        width: 100%; 
+        padding: 20px;
+    }
+    
+    /* 5. SOBRE MIM: Desfaz margens negativas e empilha */
+    section.sobre-mim .flex {
+        flex-direction: column;
+        padding: 40px 4%; 
+        gap: 20px;
+    }
+    
+    .img-sobre {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto; /* Centraliza a imagem no mobile */
+    }
+    
+    .txt-sobre h2{
+        text-align: center;
+    }
+    .txt-sobre p {
+        text-align: justify;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        hyphens: auto;
+        word-spacing: -1px;
+
+    }
+    
+    .txt-sobre .btn-social {
+        justify-content: center; /* Centraliza os botões sociais */
+    }
+    
+    /* 6. PORTFÓLIO: CORREÇÃO CRÍTICA PARA AS IMAGENS AMONTOADAS E CORTADAS */
+    section.portfolio .flex {
+        flex-direction: column; /* Empilha as imagens */
+        flex-wrap: nowrap;
+        overflow-x: hidden; /* Remove o scroll horizontal que não é mais necessário */
+        gap: 30px;
+        padding-bottom: 0;
+    }
+    
+    .img-port {
+        width: 100%; /* Ocupa a largura total */
+        height: 300px; /* Reduz a altura para caber melhor na tela */
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 15px; /* Arredondamento menor */
+    }
+    
+    .overlay {
+        border-radius: 15px;
+    }
+
+
+    /* 7. MODAL: Otimização para telas menores */
+    .modal-conteudo {
+        width: 90%;
+        margin: 5% auto; 
+        padding: 15px;
+    }
+
+    .modal.-termos .modal-conteudo {
+        padding-top: calc(50px + env(safe-area-inset-top, 0)) !important;
+        padding-bottom: calc(40px + env(safe-area-inset-bottom, 0)) !important;
+        width: 100%;
+        margin: 0;
+        min-height: 100vh;
+        min-height: 100dvh;
+        max-width: none;
+    }
+
+    .modal-flex {
+        flex-direction: column; /* Empilha a imagem e o texto no modal */
+        gap: 15px;
+    }
+
+    .modal-imagem {
+        width: 80%; /* Ocupa a largura total */
+        height: 230px; 
+    }
+
+    .modal-texto h2 {
+        text-align: left;
+        margin-bottom: 20px;
+        font-size: 28px;
+        margin-top: 20px;
+    }
+    
+.modal-texto h3{
+    text-align: lef !important;
+}
+
+
+.modal-termos p{
+    line-height: 1.6;
+    margin-bottom: 10px;
+    text-align: left !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+
+}
+
+/* DENTRO DA MEDIA QUERY: @media screen and (max-width: 1400px) */
+
+.fechar-modal {
+    color: #fff; 
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    
+    /* REGRAS CRÍTICAS PARA FIXAR O BOTÃO */
+    position: fixed; /* Tira ele do fluxo do conteúdo e o fixa na tela */
+    top: 30px;       /* Perto do topo */
+    right: 10px;     /* Perto da direita */
+    z-index: 99999; /* Garante que fique acima de TUDO */
+    
+    /* Remove as margens indesejadas do desktop */
+    float: none;
+    margin: 0;
+}
+
+    /* 8. RODAPÉ */
+    .rodape-flex {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .contato-rodape {
+        width: 100%;
+    }
+}
